@@ -4,6 +4,7 @@ const expect = require("chai").expect;
 function punc(html) {
   return typeset(html, {
     enable: ["punctuation"],
+    fragment: true
   });
 }
 
@@ -38,7 +39,7 @@ describe("Punctuation", () => {
     const html =
       '<p>Use an "en" dash to con­nect num­bers in a range. It means "up to and includ­ing" when used like this: "During the years 1998 – 1999," and "peo­ple aged 55 – 63."</p>';
     expect(punc(html)).to.equal(
-      '<p>Use an "en" dash to con­nect num­bers in a range. It means "up to and includ­ing" when used like this: "During the years 1998&thinsp;&mdash;&thinsp;1999," and "peo­ple aged 55&thinsp;&mdash;&thinsp;63."</p>'
+      '<p>Use an "en" dash to con­nect num­bers in a range. It means "up to and includ­ing" when used like this: "During the years 1998 — 1999," and "peo­ple aged 55 — 63."</p>'
     );
   });
 });

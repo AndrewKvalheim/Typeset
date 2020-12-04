@@ -56,5 +56,9 @@ module.exports = (html, doThis, options) => {
       });
   }
 
-  return (jquery && processedText[0]) || $.html();
+  return (
+    (jquery && processedText[0]) ||
+    // Workaround for https://github.com/cheeriojs/cheerio/issues/1031
+    (options.fragment ? $("body").html() : $.html())
+  );
 };

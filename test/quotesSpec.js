@@ -4,6 +4,7 @@ const expect = require("chai").expect;
 function quotes(html) {
   return typeset(html, {
     enable: ["quotes"],
+    fragment: true
   });
 }
 

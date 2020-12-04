@@ -4,6 +4,7 @@ const expect = require("chai").expect;
 function hang(html) {
   return typeset(html, {
     enable: ["hangingPunctuation"],
+    fragment: true
   });
 }
 
