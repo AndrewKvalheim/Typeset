@@ -2,6 +2,14 @@ const typeset = require("../src/index");
 const expect = require("chai").expect;
 
 describe("Typeset", () => {
+  it("should preserve necessary HTML entities", () => {
+    const html = '<a href="/c?d&amp;e">A &amp; B</a>';
+
+    expect(typeset(html, { fragment: true })).to.equal(
+      '<a href="/c?d&amp;e">A &amp; B</a>'
+    );
+  });
+
   it("should process encoded quotes", () => {
     const html =
       "<p>Foo&#39;s &quot;<em>bar</em>&quot; ABC&#39;s.</p><blockquote>" +
